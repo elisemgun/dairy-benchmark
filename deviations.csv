@@ -1,0 +1,18 @@
+deviation_type,deviation_description,keyword
+  Packaging machine malfunction,"Intermittent sealing failure on carton filler – ~50 cartons with weak or open seals.",packaging_sealing
+  Packaging machine malfunction,"Label applicator misaligned — ~200 cartons had skewed or missing labels.",packaging_label
+pH level,"pH of pasteurized milk measured at 6.2 (specification: 6.6–6.8).
+",ph_low
+pH level,"Raw milk intake sample showed pH 7.4 (specification: 6.6–6.8).
+",ph_high
+Fat content,"Standardized milk tested at 2.9% fat (label claim: 3.2% ± 0.1%).",fat_low
+Fat content,"Whole milk tested at 4.5% fat (spec: 3.2% ± 0.1%).",fat_high
+Production flow rate,"Milk flow rate increased to 12,000 L/h for 10 minutes (target: 10,000 L/h ± 5%).",flow_high
+Production flow rate,"Flow rate dropped to 6,500 L/h for 20 minutes (target: 10,000 L/h ± 5%).",flow_low
+Process temperature,  Pasteurizer holding temperature dropped to 70°C for 2 minutes (required: ≥72°C for 15 seconds).,temp_low
+Process temperature,"Pasteurizer temperature spiked to 82°C for 5 minutes (target: 72–75°C).
+",temp_high
+Bacteria count,"Finished milk batch showed TVC of 85,000 CFU/mL. (limit: ≤50,000 CFU/mL).",bacteria
+Bacteria count,UHT milk showed aerobic plate count of 10 CFU/mL (spec: 0 CFU/mL for UHT).,bacteria_aerobic
+Protein content,Milk protein content measured too low at 2.8% (target: 3.3% ± 0.1%).,protein_low
+Protein content,Standard milk showed protein content of 4.2% (target: 3.3% ± 0.1%).,protein_low
