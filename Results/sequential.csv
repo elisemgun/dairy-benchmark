@@ -1,0 +1,88 @@
+deviation_type,deviation_description,keyword,Answer,Timestamp
+  Packaging machine malfunction,Intermittent sealing failure on carton filler – ~50 cartons with weak or open seals.,packaging_sealing,"**Corrective Actions:**
+
+1. **Recalibrate Sealing Jaws and Recheck Machine Settings**: Immediately recalibrate the sealing jaws to ensure proper alignment and pressure for consistent sealing. Also, re-check and adjust machine settings to optimize operation.
+2. **Conduct Post-Implementation Monitoring**: Continuously monitor the system after these adjustments are made to ensure that the deviation is fully resolved and identify any persistent problems requiring further intervention.
+
+These two actions should help address the intermittent sealing failure on the carton filler by focusing on critical mechanical and operational aspects, while also ensuring post-fix monitoring for ongoing improvement.",20250331_000435
+  Packaging machine malfunction,Label applicator misaligned — ~200 cartons had skewed or missing labels.,packaging_label,"Based on the relevant data and expert insights provided, I recommend the following 1-2 concise corrective actions for the operator:
+
+1. **Immediate Action:** Realign the label applicator immediately by recalibrating the sealing jaws and verifying that all sensors are functioning correctly.
+2. **Follow-up Action:** Regularly clean and lubricate the machine to prevent dust, dirt, and grease from affecting label alignment.
+
+These two actions address the immediate cause of the deviation (label misalignment) and take into account the expert's recommendation for regular maintenance to prevent future occurrences.",20250331_000453
+pH level,"pH of pasteurized milk measured at 6.2 (specification: 6.6–6.8).
+",ph_low,"**Actionable Suggestions:**
+
+1. **Conduct pH tests on multiple batches**: Immediately conduct detailed pH tests on a representative sample of pasteurized milk from different production runs to identify trends or consistent issues.
+2. **Review production logs and sanitation checks**: Review recent production logs for any unusual events, equipment malfunctions, or changes in raw milk supply, and perform thorough sanitation checks to identify potential sources of contamination.
+
+These two actions will provide immediate insight into the possible causes of the deviation and allow for corrective measures to be taken promptly.",20250331_000507
+pH level,"Raw milk intake sample showed pH 7.4 (specification: 6.6–6.8).
+",ph_high,"**Corrective Actions:**
+
+1. **Verify Milk Source:** Confirm with suppliers about any changes in cow feed or health that could be influencing the pH levels of the raw milk intake.
+2. **Adjust Storage Conditions:** Improve temperature control during transport and storage to ensure optimal conditions are maintained, which may help stabilize the milk's acidity.
+
+These actions prioritize immediate investigation into potential causes and a straightforward adjustment that can be made to mitigate further deviations, thereby ensuring adherence to specified pH standards.",20250331_000527
+Fat content,Standardized milk tested at 2.9% fat (label claim: 3.2% ± 0.1%).,fat_low,"**Corrective Actions:**
+
+1. **Re-run a batch of milk with immediate effect**: This will help determine if the deviation is consistent or a one-off occurrence.
+2. **Review incoming raw material quality starting from the last shipment**: Investigate if recent changes in supplier or milk source may have contributed to the deviation.
+
+These actions are recommended based on the provided insights and data, aiming to address the milk fat deviation promptly and effectively.",20250331_000542
+Fat content,Whole milk tested at 4.5% fat (spec: 3.2% ± 0.1%).,fat_high,"**Corrective Action Suggestions:**
+
+1. **Re-calibrate all equipment, including sensors, to ensure accurate fat content measurements during processing**: This involves re-setting the calibration parameters of the cream separator and dosing system to accurately measure and control fat levels in the milk.
+2. **Adjust extraction settings on the separator unit to optimize fat removal while maintaining product quality**: This requires modifying the extraction settings to maximize fat removal efficiency without over-compensating, which could lead to higher fat levels.
+
+These two actions should be carried out sequentially: first recalibrate equipment to ensure accurate measurements, then adjust extraction settings for optimal performance.",20250331_000556
+Production flow rate,"Milk flow rate increased to 12,000 L/h for 10 minutes (target: 10,000 L/h ± 5%).",flow_high,"**Corrective Actions:**
+
+1. **Immediately reduce the milk flow rate back to the target range (10,000 L/h ± 5%) to prevent further deviations and potential quality issues.**
+2. **Conduct a quick visual inspection of the equipment involved in flow rate regulation to identify any obvious signs of malfunction or error that may have contributed to the deviation.**
+
+These actions prioritize immediate correction and rapid identification of root causes to minimize further disruptions to operations while maintaining milk quality.",20250331_000611
+Production flow rate,"Flow rate dropped to 6,500 L/h for 20 minutes (target: 10,000 L/h ± 5%).",flow_low,"**Corrective Actions:**
+
+1. **Immediate Action:** ""Check and verify if all pumps are functioning correctly. If not, shut down and inspect the affected pump(s) before resuming operation.""
+2. **Short-Term Solution:** ""Initiate a manual override to increase flow rate to 10,000 L/h by adjusting valves while monitoring system pressure and temperature.""",20250331_000625
+Process temperature,  Pasteurizer holding temperature dropped to 70°C for 2 minutes (required: ≥72°C for 15 seconds).,temp_low,"**Actionable Suggestions:**
+
+1. **Restore Holding Temperature**: Immediately restore the holding temperature in the affected pasteurizer to at least 72°C for a minimum of 15 seconds.
+2. **Perform Thorough Troubleshooting**: Conduct thorough troubleshooting on all pasteurizers, including checks for steam or power loss, blockages, and operational errors, and address any issues found.
+
+These suggestions are direct, concise, and actionable, ensuring that the operator can take immediate steps to correct the deviation while also understanding the need for a more comprehensive approach to prevent future incidents.",20250331_000639
+Process temperature,"Pasteurizer temperature spiked to 82°C for 5 minutes (target: 72–75°C).
+",temp_high,"**Corrective Actions:**
+
+1. **Immediate Action:** Cease operation of the pasteurizer until further notice.
+2. **Recalibration Check:** Recalibrate the pasteurizer temperature control system as soon as possible to ensure accurate temperature settings.
+
+Please proceed with these steps to resolve the deviation and maintain product safety and quality standards.",20250331_000654
+Bacteria count,"Finished milk batch showed TVC of 85,000 CFU/mL. (limit: ≤50,000 CFU/mL).",bacteria,"**Corrective Actions:**
+
+1. **Revalidate Aseptic Filler Performance**: Conduct an immediate inspection of the aseptic filler to ensure it is functioning correctly without malfunctions or wear. Adjust parameters if necessary, considering previous enhancements did not yield sustainable results.
+2. **Enhance Cleaning and Maintenance Schedule**: Perform a comprehensive review of production lines' cleaning schedules and maintenance records to identify potential gaps in hygiene procedures that may have allowed microorganisms to accumulate. Update the schedule as needed to prevent future contamination.
+
+These actions directly address equipment performance and maintenance, which are critical components of preventing bacterial contamination in milk processing. By focusing on these areas, we can reduce the risk of similar deviations occurring in the future.",20250331_000708
+Bacteria count,UHT milk showed aerobic plate count of 10 CFU/mL (spec: 0 CFU/mL for UHT).,bacteria_aerobic,"**Corrective Actions:**
+
+1. **Conduct an immediate investigation**: Test samples at different production stages to identify where the contamination occurs.
+2. **Review pasteurization parameters and equipment functionality**: Verify that temperature and holding time meet regulatory standards, and check for potential equipment malfunction or inconsistent temperature control.
+
+These actions will help identify the root cause of the deviation and provide a foundation for implementing corrective measures to prevent future occurrences.",20250331_000726
+Protein content,Milk protein content measured too low at 2.8% (target: 3.3% ± 0.1%).,protein_low,"**Deviation Correction Suggestions**
+
+Based on the expert insights provided, I recommend the following two actionable steps for the operator:
+
+1. **Immediate Milk Testing:** Conduct a detailed analysis of the milk to assess protein levels and overall quality using accurate measurements and equipment functionality.
+2. **Review Current Feed Rations with a Nutritionist:** Examine current feed compositions and consult with a nutritionist to ensure cows are receiving balanced, high-protein diets.
+
+These two steps address potential root causes (feed issues and cow health) and provide immediate and tangible corrective actions for the operator to take. They also align with the possible causes identified by the expert and form a good starting point for further investigation and implementation of more comprehensive solutions.",20250331_000742
+Protein content,Standard milk showed protein content of 4.2% (target: 3.3% ± 0.1%).,protein_low,"**Actionable Suggestions:**
+
+1. **Adjust Pasteurization Parameters:** Verify and adjust pasteurization time and temperature settings to ensure they are within optimal ranges.
+2. **Improve Filtration Systems:** Upgrade or clean the existing filtration systems to effectively remove contaminants that may be contributing to elevated protein levels.
+
+These two actions directly address potential causes of the deviation, as identified by the Domain Expert's structured approach, and should be prioritized for immediate implementation to correct the milk protein content issue.",20250331_000758
