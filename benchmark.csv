@@ -1,0 +1,77 @@
+Question,Reference Answer,Reference SQL,Model answer,Evalutation,Comment
+What was the production volume last 24 hours?,The plant produced 18867.03 Liters of good product.,SELECT SUM(quantity) FROM productiondata WHERE production_date = '2024-10-19'::date - INTERVAL '1 day';,,,
+Did we run at full capacity?,"Since the maximum capacity is 53857 Liters, we utilised about 35% of the capacity.","Maximum capcity in a day:
+SELECT sum(quantity) AS sum FROM productiondata GROUP BY production_date ORDER BY sum DESC LIMIT 1;
+Capacity the last day:
+SELECT SUM(quantity) FROM productiondata WHERE production_date = '2024-10-19'::date - INTERVAL '1 day';",,,
+What were the reason for lost time or capacity?,"Looking at the deviations that occured in the last day, we had a single deviation with medium severity where it mentions a high bacterial count in raw milk.",SELECT * FROM nonconformityrecords WHERE deviation_timestamp::date = '2024-10-19'::date - INTERVAL '1 day';,,,
+How was the yield based on input raw material volume and output production?,The yield is estimated to be 93.8%.,"SELECT
+    (SELECT SUM(quantity) FROM productiondata WHERE production_date = '2024-10-19'::date - INTERVAL '1 day')
+     / 
+    (SELECT SUM(quantity) FROM rawmaterialinput WHERE arrival_timestamp::date = '2024-10-19'::date - INTERVAL '1 day');",,,
+What is the variation in output fat and protein last 24 hours?,"The standard deviation for fat % is 0,35 and protein % is 0.14%.","SELECT stddev(fat_content) AS fat_deviation, stddev(protein_content) AS proten_deviation FROM qualitydata WHERE test_timestamp::date = '2024-10-19'::date - INTERVAL '1 day';",,,
+What is the process variation in the last 24 hours?,The mean temperature is 61.6 degrees with a standard deviation of 10.7 degrees and the mean pressure is 159.7 Psi and standard deviation is 16.7 PSI.,"SELECT 
+    avg(temperature) AS temperature_avg, stddev(temperature) AS temperature_stddev,
+    avg(pressure) AS pressure_avg, stddev(pressure) AS pressure_stddev,
+    avg(flow_rate) AS avg_flow_rate, stddev(flow_rate) AS stddev_flow_rate 
+FROM processdata
+WHERE DATE(start_time) = ('2024-10-19'::date - INTERVAL '1 day');",,,
+Was the process stable?,The Cpk (Process Capability Index) is 0.23 of the process in the last day indicating that we are not within the specification limits and thus the process was not stable.,"Getting the SOP:
+SELECT * FROM sop WHERE procedure_name = 'Quality Testing Protocol' ORDER BY last_updated DESC LIMIT 1;
+
+Getting the mean and standard deviation:
+SELECT avg(fat_content) AS avg_fat_content,
+    stddev(fat_content) AS fat_deviation,
+    avg(protein_content) AS avg_proteint_content,
+    stddev(protein_content) AS proten_deviation
+FROM qualitydata WHERE test_date::date = '2024-10-19'::date - INTERVAL '1 day';
+
+Calulating the Cpk (Process Capability Index) using the formula found from https://www.6sigma.us/process-improvement/process-capability-index-cpk/ ",,,
+Did we have any listed entries in the shift process log?,"Yes, three entries are listed, one for the morning shift, one for the afternoon shift and one for the night shift. The night shift mentions an observed minor equipment malfunctions while the in the morning and afternoon no significant issues were reported.",SELECT * FROM shiftprocesslogs WHERE shift_date = '2024-10-19'::date - INTERVAL '1 day';,,,
+Have we documented any non-conformities?,"Yes, there is one entry on high bacterial count in raw milk that occured at 3:58 and had a medium severity. It was solved at 4:30 and the action taken to solve it was conducteding additional pasteurization cycle.",SELECT * FROM nonconformityrecords WHERE deviation_date::date = ('2024-10-19'::date - INTERVAL '1 day');,,,
+Does the shift process log contain any info that could explain the problems with raw milk?,"There is an entry about minor equipment malfunction, this might explain the problem.",SELECT * FROM shiftprocesslogs WHERE shift_date = '2024-10-19'::date - INTERVAL '1 day';,,,
+Do we have similar deviations / situations in the past where we had high bacterial count in raw milk?,"Yes, we had two other instances where we we had high bacterial count in raw milk. These instances were on 2024-31-08 and 2024-07-12.",SELECT * FROM nonconformityrecords WHERE LOWER(description) LIKE '%high bacterial count in raw milk%';,,,
+What were the root causes for the deviations?,"Here are several possible causes based on the data:
+1. Shift process logs mentions minor equipment malfunction which might have lead to the deviation
+2. Raw milk that arrived yesterday and had high bacterial count.","Finding shiftprocess logs:
+SELECT * FROM shiftprocesslogs WHERE shift_date = '2024-10-19'::date - INTERVAL '1 day';
+Finding raw material input:
+SELECT * FROM rawmaterialinput WHERE arrival_timestamp::date = '2024-10-19'::date - INTERVAL '1 day';",,,
+What actions can be taken for solving the deviations?,"In the past we have taken the following actions to solve similar deviations:
+1. Conducting additional pasteurization cycle.
+2. Improving storage conditions and conducted training for handling.",SELECT * FROM nonconformityrecords WHERE LOWER(description) LIKE '%high bacterial count in raw milk%';,,,
+How can we reduce deviations in the future?,"The model should look at previous deviation to see if there is a pattern, and suggest possible solutions. Will have to introduce fake data.",,,,
+What is the total quantity of raw materials received from each supplier?,"Here is the list of each supplier along the total quantity recieved from that supplier:
+- Sunshine Dairy 688642
+- Mountain Dairy 625807
+- Happy Cows 488432
+- Farm Fresh 498949
+- Valley Dairy 425845
+- Riverside Dairy 540302
+- Sunny Meadows 683266
+- Hillside Dairy 571867
+- Green Valley Dairy 699018
+- Country Milk 547333
+- Dairy Farms Inc. 621818
+- Highland Farms 580204","SELECT supplier_name, SUM(quantity) AS total_quantity FROM rawmaterialinput GROUP BY supplier_name;",,,
+What is the current version of the Pasteurization Process SOP and when was it last updated?,The current version is 3.9 and was last updated on the 10th of october 2024.,"SELECT version, last_updated FROM sop WHERE procedure_name = 'Pasteurization Process' ORDER BY version DESC LIMIT 1;",,,
+Who were on the shift yesterday?,Sarah Brown worked on the morning shift while Mike Johnson worked the afternoon and night shift.,SELECT operator_name FROM shiftprocesslogs WHERE shift_date = '2024-10-19'::date - INTERVAL '1 day';,,,
+What are the specification limits for the pasteurization process according to our SOPs?,"The time must be between 32 and 35 minutes, while the temperature must be between 72 and 75 degrees.","SELECT sop_id, spec_limits, version FROM sop WHERE procedure_name = 'Pasteurization Process' ORDER BY version DESC LIMIT 1;",,,
+What are the most recent bacteria count levels recorded in our quality tests?,The most recent bacteria count level is 11814.,"SELECT test_date, bacteria_count FROM qualitydata ORDER BY test_date DESC LIMIT 1;",,,
+What has been the total daily production output and raw material input each day of the past week?,"- 2024-10-13: The production output is 17829 while the production input is 22228
+- 2024-10-14: The production output is 10766 while the production input is 19058
+- 2024-10-15: The production output is 9977 while the production input is 5872
+- 2024-10-16: The production output is 27180 while the production input is 21271
+- 2024-10-17: The production output is 8263 while the production input is 25338
+- 2024-10-18: The production output is 18867 while the production input is 20116
+- 2024-10-19: The production output 28714 while the production input is 44788","SELECT sum (rm.quantity) AS ""Material Input"", rm.arrival_timestamp::date
+FROM rawmaterialinput AS rm
+WHERE rm.arrival_timestamp::date > '2024-10-19'::date - INTERVAL '7 days'
+GROUP BY rm.arrival_timestamp::date
+ORDER BY rm.arrival_timestamp::date;
+
+SELECT pd.production_date, sum(pd.quantity) AS ""Production Output""
+FROM productiondata AS pd
+WHERE pd.production_date > '2024-10-19'::date - INTERVAL '7 days'
+GROUP BY pd.production_date
+ORDER BY production_date;",,,
